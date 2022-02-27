@@ -73,7 +73,7 @@ public class MoveObjectController : MonoBehaviour
 			Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(0.5f,0.5f,0f));
 			RaycastHit hit;
 			//if raycast hits a collider on the rayLayerMask
-			if (Physics.Raycast(rayOrigin,fpsCam.transform.forward, out hit,reachRange))
+			if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, reachRange))
 			{
 				MoveableObject moveableObject = null;
 				//is the object of the collider player is looking at the same as me?
