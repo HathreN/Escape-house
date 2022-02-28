@@ -48,7 +48,7 @@ public class MoveObjectController : MonoBehaviour
 		if (other.gameObject == player)		//player has collided with trigger
 		{
 			playerEntered = true;
-
+			Debug.Log("player has entered collider");
 		}
 	}
 

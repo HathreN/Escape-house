@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PowerCell : MonoBehaviour
 {
-    public float rotationSpeed = 100.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +14,6 @@ public class PowerCell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(0, rotationSpeed * Time.deltaTime, 0));
     }
     void OnTriggerEnter(Collider col)
     {
