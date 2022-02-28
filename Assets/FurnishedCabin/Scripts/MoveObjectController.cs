@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MoveObjectController : MonoBehaviour 
 {
-	public float reachRange = 1.8f;
+	public float reachRange = 3f;
 
 	private Animator anim;
 	private Camera fpsCam;

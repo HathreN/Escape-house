@@ -9,6 +9,8 @@ public class Inventory : MonoBehaviour
     public AudioClip collectSound;
     public Text textHints;
     bool fireIsLit = false;
+    bool TVIsOn = false;
+    GameObject TVText;
 
     // HUD
     public Texture2D[] hudCharge;
@@ -18,6 +20,7 @@ public class Inventory : MonoBehaviour
     public Renderer meter;
     // Zapa³ki
     bool haveMatches = false;
+    bool haveBatteries = false;
     public RawImage matchHudGUI;
 
     // Start is called before the first frame update
@@ -39,7 +42,10 @@ public class Inventory : MonoBehaviour
         AudioSource.PlayClipAtPoint(collectSound, new Vector3(0, 0, -10), 0.02f);
         charge++;
         chargeHudGUI.texture = hudCharge[charge];
-        meter.material.mainTexture = meterCharge[charge];
+        if (charge == 4)
+        {
+            haveBatteries = true;
+        }
         //Debug.Break();
     }
 
@@ -71,6 +77,28 @@ public class Inventory : MonoBehaviour
                 textHints.SendMessage("ShowHint", "Móg³bym rozpaliæ ognisko do wezwania pomocy.\nTylko czym...");
           }
         }
+        else if(col.gameObject.tag == "TV")
+        {
+            if (!TVIsOn)
+            {
+                Debug.Log("strefa telewizorni");
+                if (haveBatteries)
+                {
+                    GameObject text = new GameObject();
+                    TextMesh t = text.AddComponent<TextMesh>();
+                    t.text = "new text set";
+                    t.fontSize = 30;
+                    t.transform.localPosition += new Vector3(548f, 0.8f, 632f);
+                    t.transform.localEulerAngles += new Vector3(0, 90, 0);
+                    TurnTVOn(col.gameObject);
+                    Debug.Log("telewizor dzia³a");
+                }
+                else
+                {
+                    Debug.Log("telewizor nie dziala");
+                }
+            }
+        }
     }
 
     void LightFire(GameObject campfire)
@@ -85,5 +113,13 @@ public class Inventory : MonoBehaviour
         matchHudGUI.enabled = false;
         haveMatches = false;
         fireIsLit = true;
+    }
+    void TurnTVOn(GameObject TV)
+    {
+        Debug.Log("Funkcja telewizora");
+        //TV.GetComponent<AudioSource>().Play();
+        chargeHudGUI.enabled = false;
+        haveBatteries = false;
+        TVIsOn = true;
     }
 }

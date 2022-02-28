@@ -21,7 +21,6 @@ public class Battery : MonoBehaviour
         {
             col.gameObject.SendMessage("CellPickup");
             Destroy(gameObject);
-            Debug.Log("Hello: ");
         }
     }
 }
