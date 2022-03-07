@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class following : StateMachineBehaviour
+public class Following : StateMachineBehaviour
 {
     private UnityEngine.AI.NavMeshAgent _nav;
     private Transform _player;

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - TV
   - TVText
+  - Door1
+  - Door2
+  - Drawer
   layers:
   - Default
   - TransparentFX

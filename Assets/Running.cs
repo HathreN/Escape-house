@@ -9,7 +9,6 @@ public class Running : StateMachineBehaviour
     public float directionChangeTime = 5f;
     public float WolfVelocity = 50f;
 
-
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -33,7 +32,8 @@ public class Running : StateMachineBehaviour
         {
             latestDirectionChangeTime = Time.time;
             _nav.ResetPath();
-            animator.SetInteger("nextState", Random.Range(1, 4));
+            //animator.SetInteger("nextState", Random.Range(1, 4));
+		animator.SetInteger("nextState", 1);
         } 
     }
 

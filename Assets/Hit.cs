@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class Hit : MonoBehaviour
 {
-    public Text textHints;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +22,7 @@ public class Hit : MonoBehaviour
 
     void OnCollisionEnter(Collision theObject)
     {
-        if (theObject.gameObject.name == "coconut")
+        if (theObject.gameObject.name == "kunai")
         {
             GetComponent<Animator>().SetTrigger("hit");
         }
@@ -33,9 +32,7 @@ public class Hit : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            
-            textHints.SendMessage("ShowHint", "Niestety zosta³eœ zagryziony przez wilka!");
-            SceneManager.LoadScene("Menu");
+            //SceneManager.LoadScene("Menu");
 
         }
     }

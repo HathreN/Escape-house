@@ -13,6 +13,9 @@ public class MainMenuBtns : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     public Sprite rollOverTexture;
     public AudioClip beep;
     public bool quitButton = false;
+    public bool instructionsButton = false;
+
+	public RawImage Instructions_Hint;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -34,6 +37,12 @@ public class MainMenuBtns : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
             Application.Quit();
             #endif
         }
+	else if(instructionsButton) 
+	{
+		//Debug.Log("Instructions brn");
+		GetComponent<AudioSource>().PlayOneShot(beep);
+		Instructions_Hint.enabled = true;
+	}
         else
         {
                     GetComponent<AudioSource>().PlayOneShot(beep);
@@ -45,6 +54,11 @@ public class MainMenuBtns : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     {
 
     }
+
+	void InstructionsHud()
+	{
+		
+	}
 
     // Update is called once per frame
     void Update()
